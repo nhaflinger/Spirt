@@ -1,0 +1,110 @@
+#
+# Spirit scene data
+#
+
+FrameBegin 1
+Identity
+Format 256 256 1
+Quantize "rgba" 255 0 255 0.5
+Display "test.rgb" "sgi" "rgba"
+ScreenWindow -1 1 -1 1
+Projection "perspective" "fov" [41.4214]
+Clipping 0.01 10000
+PixelSamples 1 1
+ConcatTransform [1 0 0 0 0 1 0 0 0 0 1 0 0 0 4 1]
+
+WorldBegin
+# LightSource 1
+AttributeBegin
+ConcatTransform [1 0 0 0 0 1 0 0 0 0 1 0 0 2.99 -7 1]
+Declare "color" "uniform color"
+Declare "intensity" "uniform float"
+Declare "samples" "uniform float"
+Declare "width" "uniform float"
+Declare "height" "uniform float"
+#AreaLightSource 1 "arealight" "color" [1.0 1.0 1.0] "intensity" [1.0] "samples" [10] "width" [2] "height" [2]
+LightSource 1 "pointlight" "color" [1.0 1.0 1.0] "intensity" [1.0]
+AttributeEnd
+
+# Object Sphere1
+AttributeBegin
+ConcatTransform [1 0 0 -2 0 1 0 -2 0 0 1 -8 0 0 0 1]
+Declare "color" "uniform color"
+Declare "ks" "uniform float"
+Declare "kd" "uniform float"
+Declare "ka" "uniform float"
+Declare "kt" "uniform float"
+Declare "ke" "uniform float"
+Declare "ns" "uniform float"
+Surface "plastic" "color" [1.0 0.0 0.0] "ks" [0.9] "kd" [0.7] "ka" [0] "kt" [0] "ke" [0] "ns" [0.1]
+Sphere 1.0 -1.0 1.0 360
+AttributeEnd
+
+# Object Sphere2
+AttributeBegin
+ConcatTransform [1 0 0 2 0 1 0 -2 0 0 1 78 0 0 0 1]
+Declare "color" "uniform color"
+Declare "ks" "uniform float"
+Declare "kd" "uniform float"
+Declare "ka" "uniform float"
+Declare "kt" "uniform float"
+Declare "ke" "uniform float"
+Declare "ns" "uniform float"
+Surface "plastic" "color" [0.0 0.0 1.0] "ks" [0.9] "kd" [0.7] "ka" [0] "kt" [0] "ke" [0] "ns" [0.2]
+Sphere 1.0 -1.0 1.0 360
+AttributeEnd
+
+# Object Poly1
+AttributeBegin
+Declare "color" "uniform color"
+Declare "ks" "uniform float"
+Declare "kd" "uniform float"
+Declare "ka" "uniform float"
+Declare "kt" "uniform float"
+Declare "ke" "uniform float"
+Declare "ns" "uniform float"
+Surface "plastic" "color" [1.0 1.0 1.0] "ks" [0.0] "kd" [0.7] "ka" [0] "kt" [0] "ke" [0] "ns" [0.2]
+Polygon [3] "P" [-8.00 -3.00 3 8.00 -3.00 3 8.00 -3.00 -17] "N" [0.0 1.00 0.0 0.0 1.00 0.0 0.0 1.00 0.0]
+AttributeEnd
+
+# Object Poly2
+AttributeBegin
+Declare "color" "uniform color"
+Declare "ks" "uniform float"
+Declare "kd" "uniform float"
+Declare "ka" "uniform float"
+Declare "kt" "uniform float"
+Declare "ke" "uniform float"
+Declare "ns" "uniform float"
+Surface "plastic" "color" [1.0 1.0 1.0] "ks" [0.0] "kd" [0.7] "ka" [0] "kt" [0] "ke" [0] "ns" [0.2]
+Polygon [3] "P" [-8.00 -3.00 3 8.00 -3.00 -17 -8.00 -3.00 -17] "N" [0.0 -1.00 0.0 0.0 -1.00 0.0 0.0 -1.00 0.0]
+
+# Object Poly3
+AttributeBegin
+Declare "color" "uniform color"
+Declare "ks" "uniform float"
+Declare "kd" "uniform float"
+Declare "ka" "uniform float"
+Declare "kt" "uniform float"
+Declare "ke" "uniform float"
+Declare "ns" "uniform float"
+Surface "plastic" "color" [1.0 1.0 1.0] "ke" [1]
+Polygon [3] "P" [-1.00 2.999 -6 -1.00 2.999 -8 1.00 2.999 -8] "N" [0.0 -1.00 0.0 0.0 -1.00 0.0 0.0 -1.00 0.0]
+AttributeEnd
+
+# Object Poly4
+AttributeBegin
+Declare "color" "uniform color"
+Declare "ks" "uniform float"
+Declare "kd" "uniform float"
+Declare "ka" "uniform float"
+Declare "kt" "uniform float"
+Declare "ke" "uniform float"
+Declare "ns" "uniform float"
+Surface "plastic" "color" [1.0 1.0 1.0] "ke" [1]
+Polygon [3] "P" [-1.00 2.999 -6 1.00 2.999 -8 1.00 2.999 -6] "N" [0.0 -1.00 0.0 0.0 -1.00 0.0 0.0 -1.00 0.0]
+AttributeEnd
+
+AttributeEnd
+WorldEnd
+FrameEnd

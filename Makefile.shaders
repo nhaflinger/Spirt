@@ -1,0 +1,61 @@
+SRCDIR	= .
+
+SHELL	= /bin/sh
+NULL	=
+CC	= /usr/local/bin/gcc
+#
+COPTS	= -g
+OPTIMIZER=-O
+IPATH	= -I${SRCDIR}
+CFLAGS	=  ${COPTS} ${OPTIMIZER} ${IPATH}
+#
+#
+OBJS=	\
+	default.o \
+	plastic.o \
+	pointlight.o \
+	spotlight.o \
+	arealight.o \
+	${NULL}
+DSOS=	\
+	default.so \
+	plastic.so \
+	pointlight.so \
+	spotlight.so \
+	arealight.so \
+	${NULL}
+TARGETS	=\
+	default.so \
+	plastic.so \
+	pointlight.so \
+	spotlight.so \
+	arealight.so \
+	${NULL}
+
+all:	${TARGETS}
+install:
+	cp ${DSOS} /shots/spi/home/dev/thedoug/dso/.
+clean:
+	rm -f ${TARGETS} ${OBJS} core a.out
+
+default.so: default.o
+	${CC} -o default.so -shared ${CFLAGS} -B dynamic default.o -lm
+plastic.so: plastic.o
+	${CC} -o plastic.so -shared ${CFLAGS} -B dynamic plastic.o -lm
+pointlight.so: pointlight.o
+	${CC} -o pointlight.so -shared ${CFLAGS} pointlight.o -lm
+spotlight.so: spotlight.o
+	${CC} -o spotlight.so -shared ${CFLAGS} spotlight.o -lm
+arealight.so: arealight.o
+	${CC} -o arealight.so -shared ${CFLAGS} arealight.o -lm
+
+default.o: ${SRCDIR}/default.C
+	${CC} ${CFLAGS} -c ${SRCDIR}/default.C
+plastic.o: ${SRCDIR}/plastic.C
+	${CC} ${CFLAGS} -c ${SRCDIR}/plastic.C
+pointlight.o: ${SRCDIR}/pointlight.C
+	${CC} ${CFLAGS} -c ${SRCDIR}/pointlight.C
+spotlight.o: ${SRCDIR}/spotlight.C
+	${CC} ${CFLAGS} -c ${SRCDIR}/spotlight.C
+arealight.o: ${SRCDIR}/arealight.C
+	${CC} ${CFLAGS} -c ${SRCDIR}/arealight.C
